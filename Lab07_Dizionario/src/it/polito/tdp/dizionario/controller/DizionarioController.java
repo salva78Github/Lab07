@@ -26,7 +26,7 @@ public class DizionarioController {
 	@FXML
 	private Button btnTrovaVicini;
 	@FXML
-	private Button btnTrovaTutti;
+	private Button btnTrovaGradoMax;
 
 	@FXML
 	void doReset(ActionEvent event) {
@@ -45,7 +45,7 @@ public class DizionarioController {
 	}
 
 	@FXML
-	void doTrovaTutti(ActionEvent event) {
+	void doTrovaGradoMax(ActionEvent event) {
 		
 		try {
 			txtResult.setText("Controller -- TODO!");
@@ -73,6 +73,6 @@ public class DizionarioController {
 		assert inputParola != null : "fx:id=\"inputParola\" was not injected: check your FXML file 'Dizionario.fxml'.";
 		assert btnGeneraGrafo != null : "fx:id=\"btnGeneraGrafo\" was not injected: check your FXML file 'Dizionario.fxml'.";
 		assert btnTrovaVicini != null : "fx:id=\"btnTrovaVicini\" was not injected: check your FXML file 'Dizionario.fxml'.";
-		assert btnTrovaTutti != null : "fx:id=\"btnTrovaTutti\" was not injected: check your FXML file 'Dizionario.fxml'.";
+		assert btnTrovaGradoMax != null : "fx:id=\"btnTrovaTutti\" was not injected: check your FXML file 'Dizionario.fxml'.";
 	}
 }

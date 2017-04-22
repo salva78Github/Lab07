@@ -17,9 +17,8 @@ public class Model {
 		return new ArrayList<String>();
 	}
 
-	public List<String> displayAllNeighbours(String parolaInserita) {
-
+	public String findMaxDegree() {
 		System.out.println("Model -- TODO");
-		return new ArrayList<String>();
+		return "";
 	}
 }
