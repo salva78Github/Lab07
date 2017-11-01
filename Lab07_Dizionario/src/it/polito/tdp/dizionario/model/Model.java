@@ -1,6 +1,5 @@
 package it.polito.tdp.dizionario.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.jgrapht.Graphs;
