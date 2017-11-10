@@ -30,6 +30,8 @@ public class DizionarioController {
 	private Button btnTrovaVicini;
 	@FXML
 	private Button btnTrovaGradoMax;
+	@FXML
+	private Button btnTrovaTuttiVicini;
 
 	private Model model;
 
@@ -108,7 +110,6 @@ public class DizionarioController {
 					txtResult.setText("Non è stato trovato nessun risultato");
 				}
 
-				
 			}
 
 		} catch (DizionarioException de) {
@@ -119,6 +120,31 @@ public class DizionarioController {
 	}
 
 	@FXML
+	void doTrovaTuttiVicini(ActionEvent event) {
+		try {
+			String parola = this.inputParola.getText();
+			System.out.println("<doTrovaTuttiVicini> parola: " + parola);
+			if (parola == null || "".equals(parola.trim())) {
+				txtResult.setText("Inserire una parola.");
+			} else {
+				List<String> vicini = this.model.displayAllNeighboursIterativeVersion(parola);
+				if (vicini != null) {
+					txtResult.setText(vicini.toString());
+				} else {
+					txtResult.setText("Non è stato trovato nessun risultato");
+				}
+
+			}
+
+		} catch (DizionarioException de) {
+			txtResult.setText(de.getMessage());
+		} catch (RuntimeException re) {
+			txtResult.setText(re.getMessage());
+		}
+
+	}
+
+	@FXML
 	void initialize() {
 		assert txtResult != null : "fx:id=\"txtResult\" was not injected: check your FXML file 'Dizionario.fxml'.";
 		assert inputNumeroLettere != null : "fx:id=\"inputNumeroLettere\" was not injected: check your FXML file 'Dizionario.fxml'.";
@@ -126,7 +152,8 @@ public class DizionarioController {
 		assert btnGeneraGrafo != null : "fx:id=\"btnGeneraGrafo\" was not injected: check your FXML file 'Dizionario.fxml'.";
 		assert btnTrovaVicini != null : "fx:id=\"btnTrovaVicini\" was not injected: check your FXML file 'Dizionario.fxml'.";
 		assert btnTrovaGradoMax != null : "fx:id=\"btnTrovaTutti\" was not injected: check your FXML file 'Dizionario.fxml'.";
-		
+		assert btnTrovaTuttiVicini != null : "fx:id=\"btnTrovaTuttiVicini\" was not injected: check your FXML file 'Dizionario.fxml'.";
+
 		inputParola.setDisable(true);
 		btnTrovaVicini.setDisable(true);
 		btnTrovaGradoMax.setDisable(true);
